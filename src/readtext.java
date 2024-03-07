@@ -20,7 +20,7 @@ public class readtext {
                 //读取文件每一行文字
                 while((text = bufferedReader.readLine())!=null){
                     //去除空格去除标点
-                    text = text.replaceAll("[\\s*|\\t|\\r|\\n\\pP\\p{Punct}]", "");
+                    text = text.replaceAll("[\\s*|\\t\\r\\n\\pP\\p{Punct}]", "");
                     //添加到文本
                     sb.append(text);
                 }
