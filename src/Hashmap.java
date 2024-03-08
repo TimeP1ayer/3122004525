@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.HashMap;
 
 public class Hashmap {
@@ -7,7 +6,7 @@ public class Hashmap {
         //将字符串转换成字符数组
         char[] arr = str.toCharArray();
         //定义双列集合，存储字符串字符以及字符出现的次数
-        HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
+        HashMap<Character,Integer> hm = new HashMap<>();
 
         for(char c:arr){
             //如果集合中不包含这个键，就将该字符当作键，值为1存储，如果集合中包含这个键，就将值增加1存储
