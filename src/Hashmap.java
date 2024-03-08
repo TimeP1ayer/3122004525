@@ -18,8 +18,8 @@ public class Hashmap {
         }
 
 
-
-        if (true) {
+        //输出哈希表
+        if (false) {
             for (Character key : hm.keySet())     //hm.keySet()代表所有键的集合
                 System.out.println(key + "=" + hm.get(key));    //hm.get(key)根据键获取值
         }
