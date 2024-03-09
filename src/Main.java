@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /*
 测试路径
 D:
@@ -22,15 +24,13 @@ public class Main {
         System.out.println("指令2：" + copypath);
         System.out.println("指令3：" + outputpath);
 
-
-
         //原版论文
-        String str1 = readtext.readtxt("D:\\Users\\Desktop\\orig2.txt");
+        String str1 = readtext.readtxt("D:\\Users\\Desktop\\A.txt");
 
         //抄袭版论文
-        String str2 = readtext.readtxt("D:\\Users\\Desktop\\orig3.txt");
+        String str2 = readtext.readtxt("D:\\Users\\Desktop\\B.txt");
 
-        Hashmap.hashmap(str1);
+
 
         System.out.println("-----------------------------------------");
         System.out.println("-----------------------------------------");
@@ -41,11 +41,20 @@ public class Main {
         Hashmap.hashmap(str2);
 
         //重复率
-        String result = null;
+        float result;
+
+        HashMap<Character,Integer> A ;
+        HashMap<Character,Integer> B ;
+
+        A = Hashmap.hashmap(str1);
+        B = Hashmap.hashmap(str2);
+
+        result = compare.textcompare(A,B);
+
+        String finalresult = String.format("%.2f",result);
 
         //写入比较数据
-        //writetext.writetxt("D:\\Users\\Desktop\\result.txt",result);
+        writetext.writetxt("D:\\Users\\Desktop\\result.txt",finalresult);
 
-//        System.out.println(str);
     }
 }
