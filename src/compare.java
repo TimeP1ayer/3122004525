@@ -55,51 +55,40 @@ public class compare {
         Iterator<Map.Entry<Character,Integer>> iteratorB1 = B.entrySet().iterator();
 
         //跳过哈希表头节点
+        Map.Entry<Character,Integer>entryB1;
+        Map.Entry<Character,Integer>entryA1;
 
         if(iteratorB1.hasNext()){
-            Map.Entry<Character,Integer>entryB1 = iteratorB1.next();
-
-
             if(iteratorA1.hasNext()){
-                Map.Entry<Character,Integer>entryA1 = iteratorA1.next();
+                //初始化迭代器
+                entryB1 = iteratorB1.next();
+                entryA1 = iteratorA1.next();
+                if(entryA1.getKey().toString().equals(entryB1.getKey().toString())){
+                    multi+=entryB1.getValue()*entryA1.getValue();
+                }
 
-
-                if(true){
-                    System.out.println("B1:"+iteratorB1.hasNext());
-                    System.out.println("A1:"+iteratorA1.hasNext());
+                if(false){
                     Scanner scanner = new Scanner(System.in);
                     String s =scanner.nextLine();
                 }
 
 
                 while (true){
-
-                    System.out.println("while:");
-                    System.out.println("A:"+entryA1.getValue()+" "+entryA1.getKey());
-                    System.out.println("B:"+entryB1.getValue()+" "+entryB1.getKey());
-                    System.out.println("-------------------");
-
-                    if(entryA1.getKey()==entryB1.getKey()){
+                    if(entryA1.getKey().toString().equals(entryB1.getKey().toString())){
                         System.out.println("A等于B");
                         if(iteratorB1.hasNext()){
                             //计算乘积，AB移动到下一个位置
                             if(iteratorA1.hasNext()) {
-
-
                                 entryB1 = iteratorB1.next();
                                 entryA1 = iteratorA1.next();
-//                                int m = iteratorB1.next().getValue();
-//                                int n = iteratorA1.next().getValue();
 
                                 int m = entryB1.getValue();
                                 int n = entryA1.getValue();
 
-
-
-                                //multi = iteratorB1.next().getKey()*iteratorA1.next().getKey();
-                                System.out.println("m:"+m);
-                                System.out.println("n:"+n);
+                                System.out.println("m:"+m+" "+entryB1.getKey());
+                                System.out.println("n:"+n+" "+entryA1.getKey());
                                 multi += m*n;
+                                System.out.println("multi:"+multi);
                             }
 
                         }else{
@@ -113,12 +102,7 @@ public class compare {
                         System.out.println("itA1:"+iteratorA1.hasNext());
                         System.out.println("A:"+entryA1.getValue()+" "+entryA1.getKey());
                         System.out.println("B:"+entryB1.getValue()+" "+entryB1.getKey());
-                        System.out.println("-----------");
-
-                        if(false){
-                            Scanner scanner = new Scanner(System.in);
-                            String w =scanner.nextLine();
-                        }
+                        System.out.println("******************");
 
                         if(iteratorA1.hasNext()) {
                             entryA1= iteratorA1.next();
@@ -132,10 +116,7 @@ public class compare {
 
         }
 
-
-
         result = (float) (multi/Math.sqrt(Asq*Bsq));
-
         System.out.println("重复率为："+result);
         return result;
     }
