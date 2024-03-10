@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /*
 测试路径
@@ -25,30 +25,25 @@ public class Main {
         System.out.println("指令3：" + outputpath);
 
         //原版论文
-        String str1 = readtext.readtxt("D:\\Users\\Desktop\\A.txt");
+        String str1 = readtext.readtxt("D:\\Users\\Desktop\\orig.txt");
 
         //抄袭版论文
-        String str2 = readtext.readtxt("D:\\Users\\Desktop\\B.txt");
-
-
-
-        System.out.println("-----------------------------------------");
-        System.out.println("-----------------------------------------");
-        System.out.println("-----------------------------------------");
-        System.out.println("-----------------------------------------");
-        System.out.println("-----------------------------------------");
-
-        Hashmap.hashmap(str2);
+        String str2 = readtext.readtxt("D:\\Users\\Desktop\\orig_0.8_del.txt");
 
         //重复率
-        float result;
+        float result = 0;
+        TreeMap<Character, Integer> A = null;
+        TreeMap<Character,Integer> B = null;
 
-        HashMap<Character,Integer> A ;
-        HashMap<Character,Integer> B ;
 
-        A = Hashmap.hashmap(str1);
-        B = Hashmap.hashmap(str2);
+        if (str1 != null & str2 != null) {
+            A = Hashmap.treemap(str1);
+            B = Hashmap.treemap(str2);
+        }
 
+
+
+        if(A!=null&&B!=null)
         result = compare.textcompare(A,B);
 
         String finalresult = String.format("%.2f",result);

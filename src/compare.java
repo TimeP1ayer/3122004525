@@ -6,14 +6,10 @@
 HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
  */
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
-
+import java.util.*;
 
 public class compare {
-    public static float textcompare(HashMap A,HashMap B){
+    public static float textcompare(TreeMap A, TreeMap B){
 
         float result;
         float multi = 0;
@@ -28,22 +24,29 @@ public class compare {
 
 
         //迭代计算A的模长
+        System.out.println("A:");
         while (iteratorA.hasNext()){
 
             Map.Entry<Character,Integer>entryA = iteratorA.next();
             Asq += Math.pow(entryA.getValue(),2);
+            System.out.print(entryA.getKey());
 
         }
+        System.out.println();
 
         //迭代计算B的模长
-
+        System.out.println("B:");
         while (iteratorB.hasNext()){
             Map.Entry<Character,Integer>entryB = iteratorB.next();
             Bsq += Math.pow(entryB.getValue(),2);
+            System.out.print(entryB.getKey());
         }
+        System.out.println();
+
 
         System.out.println("Asq为："+Asq);
         System.out.println("Bsq为："+Bsq);
+        System.out.println("---------------------------");
 
         /*
         计算AB向量乘积
@@ -67,55 +70,54 @@ public class compare {
                     multi+=entryB1.getValue()*entryA1.getValue();
                 }
 
-                if(false){
-                    Scanner scanner = new Scanner(System.in);
-                    String s =scanner.nextLine();
-                }
 
 
                 while (true){
+                    int m = entryB1.getValue();
+                    int n = entryA1.getValue();
                     if(entryA1.getKey().toString().equals(entryB1.getKey().toString())){
-                        System.out.println("A等于B");
+                        //System.out.println("A等于B");
                         if(iteratorB1.hasNext()){
                             //计算乘积，AB移动到下一个位置
                             if(iteratorA1.hasNext()) {
+
+                                //System.out.println("m:"+m+" "+entryB1.getKey());
+                               // System.out.println("n:"+n+" "+entryA1.getKey());
+                                multi += m*n;
+
                                 entryB1 = iteratorB1.next();
                                 entryA1 = iteratorA1.next();
 
-                                int m = entryB1.getValue();
-                                int n = entryA1.getValue();
-
-                                System.out.println("m:"+m+" "+entryB1.getKey());
-                                System.out.println("n:"+n+" "+entryA1.getKey());
-                                multi += m*n;
-                                System.out.println("multi:"+multi);
                             }
 
                         }else{
                             //B向量结束，结束循环
+                            if(entryA1.getKey().toString().equals(entryB1.getKey().toString()))
+                                multi += m*n;
                             System.out.println("结束");
                             break;
                         }
                     }else{
                         //对于键，A不等于B，A移动到下一个位置
-                        System.out.println("A不等于B");
-                        System.out.println("itA1:"+iteratorA1.hasNext());
-                        System.out.println("A:"+entryA1.getValue()+" "+entryA1.getKey());
-                        System.out.println("B:"+entryB1.getValue()+" "+entryB1.getKey());
-                        System.out.println("******************");
+                        //System.out.println("A不等于B");
+                        //System.out.println("A:"+entryA1.getValue()+" "+entryA1.getKey());
+                       // System.out.println("B:"+entryB1.getValue()+" "+entryB1.getKey());
+                        //System.out.println("******************");
 
                         if(iteratorA1.hasNext()) {
                             entryA1= iteratorA1.next();
-                            int k = entryA1.getValue();
-                            System.out.println("k:"+k);
+                            //int k = entryA1.getValue();
+                            //System.out.println("k:"+k);
                         }else {break;}
                     }
+                    //System.out.println("multi:"+multi);
+                    //System.out.println("---------------------------------");
                 }
 
             }
-
         }
 
+        System.out.println("multi为:"+multi);
         result = (float) (multi/Math.sqrt(Asq*Bsq));
         System.out.println("重复率为："+result);
         return result;
