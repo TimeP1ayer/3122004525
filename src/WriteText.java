@@ -1,24 +1,32 @@
-/*写入文本
-filepath 文本存放路径
-text文本内容
-
- */
-
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
-public class writetext {
-    public static void writetxt(String filepath,String text){
+/**
+ * @author QWattson
+ * 写入文本
+ * filepath 文本存放路径
+ * text 文本内容
+ */
+public class WriteText {
+    public static void writeTxt(String filepath, String text){
 
         //创建输出流
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         File file = new File(filepath);
 
         try {
-            if(file.exists()){
-                //判断文件是否存在，如果不存在就新建一个txt
-                file.createNewFile();
+
+
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
+
             fileOutputStream = new FileOutputStream(file);
             //写入文本
             fileOutputStream.write(text.getBytes());

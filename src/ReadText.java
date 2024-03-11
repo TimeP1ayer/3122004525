@@ -1,12 +1,24 @@
 import java.io.*;
-/*
-输入文本路径返回文本string
-filepath 文本路径
-
+/**
+ * @author QWattson
+ *
+ * 输入文本路径返回文本string
+ * filepath 文本路径
  */
-public class readtext {
-    public static String readtxt(String filepath){
+
+public class ReadText {
+    public static String readTxt(String filepath){
         File file = new File(filepath);
+
+        System.out.println("filepath:"+filepath);
+        System.out.println("check:"+file.exists());
+        System.out.println("--------------");
+        //文件不存在
+        if(!file.exists()){
+            System.out.println("file does not exist!");
+            return null;
+        }
+
         if(file.isFile()&&file.exists()){
             try {
                 //创建输入流
@@ -14,7 +26,7 @@ public class readtext {
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-                StringBuffer sb = new StringBuffer();
+                StringBuffer stringBuffer = new StringBuffer();
                 String text ;
 
                 //读取文件每一行文字
@@ -22,9 +34,9 @@ public class readtext {
                     //去除空格去除标点
                     text = text.replaceAll("[\\s*|\\t\\r\\n\\pP\\p{Punct}]", "");
                     //添加到文本
-                    sb.append(text);
+                    stringBuffer.append(text);
                 }
-                return  sb.toString();
+                return  stringBuffer.toString();
 
             }catch (Exception e){
                 //异常处理
