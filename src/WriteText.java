@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
  * @author QWattson
@@ -17,15 +16,9 @@ public class WriteText {
 
         try {
 
-
             if (!file.exists()) {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                file.createNewFile();
             }
-
 
             fileOutputStream = new FileOutputStream(file);
             //写入文本

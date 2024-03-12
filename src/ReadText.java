@@ -1,4 +1,6 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+
 /**
  * @author QWattson
  *
@@ -10,8 +12,8 @@ public class ReadText {
     public static String readTxt(String filepath){
         File file = new File(filepath);
 
-        System.out.println("filepath:"+filepath);
-        System.out.println("check:"+file.exists());
+        System.out.print("filepath:"+filepath);
+        System.out.println("   check:"+file.exists());
         System.out.println("--------------");
         //文件不存在
         if(!file.exists()){
@@ -21,9 +23,9 @@ public class ReadText {
 
         if(file.isFile()&&file.exists()){
             try {
-                //创建输入流
+                //创建输入流,使用UTF-8格式读取
                 FileInputStream fileInputStream = new FileInputStream(file);
-                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                 StringBuffer stringBuffer = new StringBuffer();
@@ -41,6 +43,8 @@ public class ReadText {
             }catch (Exception e){
                 //异常处理
                 e.printStackTrace();
+                System.out.println("readtext wrong");
+                return null;
             }
         }
         return null;

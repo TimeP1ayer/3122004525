@@ -11,8 +11,6 @@ import java.util.*;
  *
  */
 
-
-
 public class TextCompare {
 
     /**
@@ -119,7 +117,6 @@ public class TextCompare {
         System.out.println("算法结束");
         return multi;
     }
-
 
     /*总计
     当抄袭文本的某些字重复次数高于原文后有可能出现重复率高于100%的结果
