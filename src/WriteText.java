@@ -29,8 +29,7 @@ public class WriteText {
             fileOutputStream.flush();
             fileOutputStream.close();
         } catch (IOException e) {
-            //e.printStackTrace();
-            System.out.println("非法的路径，写入错误！");
+            System.out.println("非法的路径，文本写入错误！");
             return;
         }
     }

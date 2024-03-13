@@ -18,7 +18,7 @@ public class Main {
         //测试路径
         String originPath = "D:\\Users\\Desktop\\orig.txt";
 
-        String copyPath = "D:\\Users\\Desktop\\orig_0.8_dis_1.txt";
+        String copyPath = "D:\\Users\\Desktop\\orig_0.8_del.txt";
         /**其他抄袭文章测试路径
          * "D:\\Users\\Desktop\\orig_0.8_dis_1.txt"
          * "D:\\Users\\Desktop\\orig_0.8_dis_10.txt"
@@ -27,11 +27,10 @@ public class Main {
          * "D:\\Users\\Desktop\\orig_0.8_add.txt"
          *
          */
-
         String outputPath = "D:\\Users\\Desktop\\result.txt";
 
         //接受终端指令
-        if(args.length!=0) {
+        if(args.length==3) {
             originPath = args[0];
             copyPath = args[1];
             outputPath = args[2];
@@ -78,10 +77,3 @@ public class Main {
 
     }
 }
-/*
-测试路径
-D:
-cd D:\SEwork\Text plagiarism check\out\artifacts\TextPlagiarismCheck_jar
-java -jar TextPlagiarismCheck.jar "D:\\Users\\Desktop\\orig.txt" "D:\\Users\\Desktop\\orig_0.8_del.txt" "D:\\Users\\Desktop\\result.txt"
-java -jar TextPlagiarismCheck.jar "D:\\Users\\Desktop\\A.txt" "D:\\Users\\Desktop\\B.txt" "D:\\Users\\Desktop\\result.txt"
- */
