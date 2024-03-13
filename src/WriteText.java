@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * @author QWattson
@@ -27,8 +28,10 @@ public class WriteText {
             //写入关闭
             fileOutputStream.flush();
             fileOutputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            //e.printStackTrace();
+            System.out.println("非法的路径，写入错误！");
+            return;
         }
     }
 

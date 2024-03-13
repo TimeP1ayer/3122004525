@@ -42,7 +42,6 @@ public class ReadText {
 
             }catch (Exception e){
                 //异常处理
-                e.printStackTrace();
                 System.out.println("readtext wrong");
                 return null;
             }

@@ -60,8 +60,8 @@ public class Main {
 
         //重复率
         float result;
-        TreeMap<Character, Integer> originMap = Hashmap.treemap(str1);
-        TreeMap<Character,Integer> copyMap = Hashmap.treemap(str2);
+        TreeMap<Character, Integer> originMap = Treemap.treemap(str1);
+        TreeMap<Character,Integer> copyMap = Treemap.treemap(str2);
 
 
         result = TextCompare.totalCount(originMap,copyMap);

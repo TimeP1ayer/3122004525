@@ -3,7 +3,7 @@ import java.util.TreeMap;
 /**
  * @author QWattson
  */
-public class Hashmap {
+public class Treemap {
     public static TreeMap treemap(String str){
 
         //将字符串转换成字符数组
